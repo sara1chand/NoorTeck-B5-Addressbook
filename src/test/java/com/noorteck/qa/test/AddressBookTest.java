@@ -9,50 +9,50 @@ public class AddressBookTest extends ObjInitialize {
 
 		String url = "http://a.testaddressbook.com/sign_up";
 
-		CommonUI commonUIObj = new CommonUI();
-		ObjInitialize obj = new ObjInitialize();
-		AddressBookTest testObj = new AddressBookTest();
+        CommonUI.openBrowser("chrome");
+		CommonUI.navigate(url);
+        initializeClassObj();
+		signUpTestOne();
+		
+        //testTwo();
 
-		commonUIObj.openBrowser("chrome");
-		commonUIObj.navigate(url);
-
-		obj.initializeClassObj();
-		testObj.signUpTestOne();
-		testObj.testTwo();
-
-		commonUIObj.quitBrowser();
+		CommonUI.quitBrowser();
 	}
 
-	public void signUpTestOne() {
+	public static void signUpTestOne() {
 
-		signupObj.enterEmailAddress("JohnCena123@gmail.com");
-		signupObj.enterPassWord("Cena123456");
+		signupObj.enterEmailAddress("hopewoks@gmail.com");
+		signupObj.enterPassWord("headhurt1101");
 		signupObj.clickSignUp();
+	    System.out.println(addressObj.displayMessage());
 
 	}
 
-	public void testTwo() {
+	public static void testTwo() {
 
-		String url = "http://a.testaddressbook.com/sign_in";
-
-		driver.get(url);
-
-		signinObj.enterEmail("JohnCena@gmail.com");
-		signinObj.enterPassword("1233456");
+		
+        signupObj.clickSignIn();
+		signinObj.enterEmail("hopewoks@gmail.com");
+		signinObj.enterPassword("headhurt1101");
 		signinObj.clickSignIn();
 		addressObj.clickAddresses();
 		addressObj.clickNewAddress();
 		addressObj.enterFirstNameField("John");
 		addressObj.enterLastNameField("Cena");
 		addressObj.enterAddressField("7888 Cena Lane");
-		addressObj.enterCityField("Fairfax");
-		addressObj.selectState();
+		addressObj.enterCityField("Anywhere");
+		addressObj.selectState("value","VA");
+		addressObj.zipCodeField("22011");
 		addressObj.enterageField("22");
 		addressObj.enterTelephone("123-2334-3434");
 		addressObj.clickCommonInterest();
 		addressObj.enterNote("Automation is Fun");
 		addressObj.clickcreateAddress();
 		addressObj.clickList();
+		System.out.println(addressObj.displayFirstName());
+		System.out.println(addressObj.displayLastName());
+		System.out.println(addressObj.displayCity());
+		System.out.println(addressObj.displayState());
 	}
 
 }

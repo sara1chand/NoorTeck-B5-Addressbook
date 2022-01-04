@@ -16,9 +16,15 @@ public class HomePage extends CommonUI {
 
 	@FindBy(xpath = "//a[@data-test='addresses']")
 	WebElement addressButton;
+	
+	@FindBy(xpath = "//a[@id='sign-in']")
+	WebElement signInButton;
 
 	@FindBy(xpath = "//a[@data-test='sign-out']")
 	WebElement signOutButton;
+	
+	@FindBy(xpath = "//a[text()='Sign up']")
+	WebElement SignUpButton;
 
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -36,8 +42,18 @@ public class HomePage extends CommonUI {
 		click(addressButton);
 	}
 	
+	public void clickSignUp() {
+		click(SignUpButton);
+	}
+	
 	public void clicksignOut() {
 		click(signOutButton);
 	}
+     
+	public void clicksignIn() {
+		click(signInButton);
+	}
 
+
+	
 }

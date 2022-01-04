@@ -23,13 +23,16 @@ public class AddressPage extends CommonUI {
 	@FindBy(css = "#address_street_address")
 	WebElement addressField;
 
-	@FindBy(css = "#address_city")
+	@FindBy(xpath = "//input[@id='address_city']")
 	WebElement cityField;
 	
 	@FindBy(css = "#address_state")
 	WebElement stateField;
 	
-	@FindBy(xpath = "//*[@value = 'us']")
+	@FindBy(css = "#address_zip_code")
+	WebElement zipCode;
+	
+	@FindBy(xpath = "//*[@value='us']")
 	WebElement countryRadio;
 	
 	@FindBy(css = "#address_age")
@@ -56,8 +59,20 @@ public class AddressPage extends CommonUI {
 	@FindBy(xpath = "//a[@data-test='list']")
 	WebElement listClick;
 	
+	@FindBy(xpath = "//h1[text()='Welcome to Address Book']")
+    WebElement displayWelcome;
 	
+	@FindBy(xpath = "//td[text()='John']")
+	WebElement verifyName;
 	
+	@FindBy(xpath = "//td[text()='Cena']")
+	WebElement verifyLast;
+	
+	@FindBy(xpath = "//td[text()='Anywhere']")
+	WebElement verifyCity;
+	
+	@FindBy(xpath = "//td[text()='VA']")
+	WebElement verifyState;
 
 	public AddressPage() {
 		PageFactory.initElements(driver, this);
@@ -87,8 +102,11 @@ public class AddressPage extends CommonUI {
 		enter(cityField, cityName);
 	}
 	
-	public void selectState() {
-		click(stateField);
+	public void selectState(String methodName, String indexTextValue) {
+		selectFromDropdown(stateField, methodName, indexTextValue);
+		}
+	public void zipCodeField(String zipcode) {
+		enter(zipCode, zipcode);
 	}
 	public void clickCountry() {
 		click(countryRadio);
@@ -122,6 +140,29 @@ public class AddressPage extends CommonUI {
 	public void clickList() {
 		click(listClick);
 	}
+	
+	public boolean displayMessage() {
+		return isDisplayed(displayWelcome);
+	}
+	
+	public boolean displayFirstName() {
+		return isDisplayed(verifyName);
+	}
+	
+	public boolean displayLastName() {
+		return isDisplayed(verifyLast);
+	}
+	
+	public boolean displayCity() {
+		return isDisplayed(verifyCity);
+	}
+	
+	public boolean displayState() {
+		return isDisplayed(verifyState);
+	}
+	
+	
+	
 }
 	
 	

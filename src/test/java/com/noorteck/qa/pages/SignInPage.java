@@ -9,13 +9,13 @@ import com.noorteck.qa.utils.CommonUI;
 public class SignInPage extends CommonUI{
 	
 	
-	@FindBy(xpath = "//input[@placeholder = 'Email']")
+	@FindBy(xpath = "//input[@placeholder='Email']")
 	WebElement emailField;
 	
-	@FindBy(xpath = "//input[@placeholder = 'Password']")
+	@FindBy(xpath = "//input[@placeholder='Password']")
 	WebElement passwordField;
 	
-	@FindBy(xpath = "//input[@value = 'Sign in']")
+	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement signInButton;
 	
 	

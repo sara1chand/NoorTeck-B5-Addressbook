@@ -30,7 +30,7 @@ package com.noorteck.qa.utils;
 		 * 
 		 * @param browser
 		 */
-		public void openBrowser(String browser) {
+		public static void openBrowser(String browser) {
 			try {
 
 				switch (browser.toLowerCase()) {
@@ -63,11 +63,11 @@ package com.noorteck.qa.utils;
 		 * 
 		 * @param url
 		 */
-		public void navigate(String url) {
+		public static void navigate(String url) {
 
 			try {
 				driver.manage().window().maximize();
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 				driver.get(url);
 
 			} catch (Exception e) {
@@ -102,7 +102,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 * @return
 		 */
-		public boolean isDisplayed(WebElement element) {
+		public static boolean isDisplayed(WebElement element) {
 			try {
 
 				return element.isDisplayed();
@@ -123,7 +123,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 * @return
 		 */
-		public boolean isEnabled(WebElement element) {
+		public static boolean isEnabled(WebElement element) {
 			try {
 
 				return element.isEnabled();
@@ -144,7 +144,7 @@ package com.noorteck.qa.utils;
 		 * @return
 		 */
 
-		public boolean isSelected(WebElement element) {
+		public static boolean isSelected(WebElement element) {
 			try {
 
 				return element.isSelected();
@@ -163,7 +163,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 */
 
-		public void click(WebElement element) {
+		public static void click(WebElement element) {
 
 			if (isDisplayed(element)) {
 				element.click();
@@ -176,7 +176,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 * @return
 		 */
-		public String getText(WebElement element) {
+		public static String getText(WebElement element) {
 			String text = null;
 
 			if (isDisplayed(element)) {
@@ -190,7 +190,7 @@ package com.noorteck.qa.utils;
 		 * This method quits the browser
 		 */
 
-		public void quitBrowser() {
+		public static void quitBrowser() {
 
 			try {
 
@@ -209,7 +209,7 @@ package com.noorteck.qa.utils;
 		 * @param value
 		 */
 
-		public void enter(WebElement element, String value) {
+		public static void enter(WebElement element, String value) {
 
 			if (isDisplayed(element)) {
 				element.clear();
@@ -225,7 +225,7 @@ package com.noorteck.qa.utils;
 		 * @param indexTextValue
 		 */
 
-		public void selectFromDropdown(WebElement element, String methodName, String indexTextValue) {
+		public static void selectFromDropdown(WebElement element, String methodName, String indexTextValue) {
 
 			try {
 
@@ -256,7 +256,7 @@ package com.noorteck.qa.utils;
 		 * @return
 		 */
 
-		public boolean isAlertPresent() {
+		public static boolean isAlertPresent() {
 			boolean isAlert = false;
 
 			try {
@@ -275,7 +275,7 @@ package com.noorteck.qa.utils;
 		 * This method switchs to alert and accepts
 		 */
 
-		public void acceptAlert() {
+		public static void acceptAlert() {
 
 			if (isAlertPresent()) {
 				Alert alert = driver.switchTo().alert();
@@ -288,7 +288,7 @@ package com.noorteck.qa.utils;
 		 * This method switchs to alert and declines
 		 */
 
-		public void dismissAlert() {
+		public static void dismissAlert() {
 
 			if (isAlertPresent()) {
 				Alert alert = driver.switchTo().alert();
@@ -303,7 +303,7 @@ package com.noorteck.qa.utils;
 		 * @param target
 		 */
 
-		public void dragAndDrop(WebElement source, WebElement target) {
+		public static void dragAndDrop(WebElement source, WebElement target) {
 
 			try {
 				Actions actions = new Actions(driver);
@@ -321,7 +321,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 */
 
-		public void moveToElement(WebElement element) {
+		public static void moveToElement(WebElement element) {
 			try {
 				Actions actions = new Actions(driver);
 				actions.moveToElement(element).build().perform();
@@ -338,7 +338,7 @@ package com.noorteck.qa.utils;
 		 * @param element
 		 */
 
-		public void moveToElementAndClick(WebElement element) {
+		public static void moveToElementAndClick(WebElement element) {
 			try {
 				Actions actions = new Actions(driver);
 				actions.moveToElement(element).click().build().perform();
